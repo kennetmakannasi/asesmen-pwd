@@ -1,0 +1,33 @@
+@extends('layouts.page')
+
+@section('title','data menu')
+
+@section('content')
+    <table class="bg-gray-300 rounded-lg overflow-x-scroll mt-4">
+        <tr class="border-b-4 border-b-white">
+            <th class="p-2">nama</th>
+            <th class="p-2">harga</th>
+            <th class="p-2">kategori</th>
+            <th class="p-2 w-[300px]">Deskripsi</th>
+            <th class="p-2 w-96">Foto</th>
+            <th class="p-2" colspan="2">aksi</th>
+        </tr>
+        @foreach ($menu as $menudata)
+        <tr class="border-t-4 border-t-white">
+            <td class="p-2">{{ $menudata->nama }}</td>
+            <td class="p-2">{{ $menudata->harga }}</td>
+            <td class="p-2">{{ $menudata->kategori }}</td>
+            <td class="p-2">{{ $menudata->deskripsi }}</td>
+            <td class="p-2"><img class="rounded-lg m-3" src="{{ $menudata->foto }}" alt=""></td>
+            <td class="p-2"><button><a class="bg-green-500 p-2 rounded-lg px-3 text-white hover:bg-green-600" href="{{ route('menu.editmenu',['menu'=>$menudata]) }}">edit</a></button></td>
+            <td class="p-2">
+                <form action="{{ route('menu.deletemenu', ['menu'=>$menudata]) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="bg-red-500 p-2 rounded-lg text-white hover:bg-red-600" type="submit">hapus</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </table>
+@endsection
