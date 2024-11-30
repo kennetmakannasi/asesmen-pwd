@@ -34,7 +34,7 @@
             @foreach ($pesanan as $data)
             <tr class=" border-t-4 border-t-gray-100 h-20">
                 <td class="p-2">{{ $data->nama_pemesan }}</td>
-                <td class="p-2 max-w-40">{{ $data->pesanan }}</td>
+                <td class="p-2 max-w-40">{!! nl2br(e($data->pesanan)) !!}</td>
                 <td class="p-2 w-40">Rp. {{ $data->total_harga }}</td>
                 <td class="p-2">{{ $data->created_at }}</td>    
                 <td class="p-2">
