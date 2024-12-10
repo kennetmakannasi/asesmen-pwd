@@ -3,7 +3,7 @@
 @section('title','data menu')
 
 @section('content')
-    <button><a href="{{ route('menu.addmenu') }}">Buat Menu</a></button>
+    <button class="bg-red-700 p-3 text-white rounded-lg mt-4 hover:bg-red-800 hover:transition hover:ease-in-out hover:delay-150"><a href="{{ route('menu.addmenu') }}">Buat Menu</a></button>
     <table class="bg-white rounded-lg overflow-x-scroll mt-4">
         <tr class="border-b-4 border-b-gray-200">
             <th class="p-2">nama</th>
